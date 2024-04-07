@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: Gateway
+  cloud:
+    consul:
+      discovery:
+        #        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        register: false
+        instance-id: template
+        healthCheckInterval: 40s
+      host: consul-server
+      port: 8505
+
+endpoints:
+  health:
+    sensitive: false
